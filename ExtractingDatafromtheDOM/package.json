@@ -1,0 +1,17 @@
+{
+  "name": "extractingdatafromthedom",
+  "version": "1.0.0",
+  "main": "1.extracting_text_content.js",
+  "type": "module",
+  "dependencies": {
+    "jsdom": "^26.0.0",
+    "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

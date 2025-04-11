@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Robot Interacting With a Webpage Containing a Table of Sensor readings
+    </title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Sensor ID</th>
+          <th>Temperature (°C)</th>
+          <th>Humidity (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>51</td>
+          <td>25.5</td>
+          <td>60</td>
+        </tr>
+        <tr>
+          <td>52</td>
+          <td>28.2</td>
+          <td>75</td>
+        </tr>
+        <tr>
+          <td>53</td>
+          <td>23.8</td>
+          <td>55</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      const sensorReadings = [];
+
+      const rows = document.querySelectorAll("tbody tr");
+      rows.forEach((row) => {
+        const sensorId = row.cells[0].textContent;
+        const temperature = parseFloat(row.cells[1].textContent);
+        const humidity = parseFloat(row.cells[2].textContent);
+        sensorReadings.push({ sensorId, temperature, humidity });
+      });
+
+      console.log("Sensor Readings:", sensorReadings);
+
+      // Analyze the sensor readings and take actions
+      sensorReadings.forEach((reading) => {
+        if (reading.temperature > 28) {
+          console.log(
+            `Warning: High temperature detected at sensor ${reading.sensorId}!`
+          );
+          // Take action, e.g., activate cooling system
+        }
+        // ... other analysis and actions based on sensor data
+      });
+    </script>
+  </body>
+</html>

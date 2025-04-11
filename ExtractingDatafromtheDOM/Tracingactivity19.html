@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Robot Analyzing Data From a Complex Web Page Containing Information About
+      Various Sensors
+    </title>
+  </head>
+  <body>
+    <div id="sensor-data">
+      <h1>Temperature Sensors</h1>
+      <ul>
+        <li data-sensor-id="T1" data-sensor-type="temperature">25.5 °C</li>
+        <li data-sensor-id="T2" data-sensor-type="temperature">28.2 °C</li>
+      </ul>
+      <h2>Humidity Sensors</h2>
+      <ul>
+        <li data-sensor-id="H1" data-sensor-type="humidity">60%</li>
+        <li data-sensor-id="H2" data-sensor-type="humidity">75%</li>
+      </ul>
+      <script>
+        const sensorData = {};
+        const sensorGroups = document.querySelectorAll("#sensor-data > h2");
+        sensorGroups.forEach((group) => {
+          const sensorType = group.textContent
+            .toLowerCase()
+            .replace(" sensors", ""); // Extract sensor type from heading
+          const sensorList = group.nextElementSibling; // Get the <ul> element containing sensor readings
+          const sensorItems = sensorList.querySelectorAll("li");
+
+          sensorItems.forEach((item) => {
+            const sensorId = item.getAttribute("data-sensor-id");
+            const readingText = item.textContent.replace(/[^0-9.]/g, ""); //Extract the numeric portion of the string
+            const reading = parseFloat(readingText); // Extract and convert reading to number
+
+            if (!sensorData[sensorType]) {
+              sensorData[sensorType] = {};
+            }
+            sensorData[sensorType][sensorId] = reading; // Use sensorType here
+          });
+        });
+
+        console.log("Sensor Data:", sensorData);
+        // Output:
+        // {
+        // temperature: { T1: 25.5, T2: 28.2 },
+        // humidity: { H1: 60, H2: 75 }
+        // }
+      </script>
+    </div>
+  </body>
+</html>

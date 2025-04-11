@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Robot Instructions</title>
+  </head>
+  <body>
+    <p id="instructions">
+      Move to Location A, pick up Item B, and deliver it to Location C.
+    </p>
+
+    <script>
+      const instructionsParagraph = document.getElementById("instructions");
+      const instructionsText = instructionsParagraph.textContent;
+
+      console.log("Instructions:", instructionsText);
+
+      const commands = instructionsText.split(/,\s*|\s+and\s+/);
+      console.log("Commands:", commands);
+    </script>
+  </body>
+</html>

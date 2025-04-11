@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Robot Interacting With a Webpage</title>
+  </head>
+  <body>
+    <form id="myForm" action="/submit-data" method="post"></form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br></br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br></br>
+    <button type="submit">Submit</button>
+    <script>
+     const form = document.getElementById("myForm");
+     const actionUrl = form.getAttribute("action"); // Get the value of the 'action' attribute
+     console.log("Form Action URL:", actionUrl); // Output: /submit-data
+    </script>
+  </body>
+</html>

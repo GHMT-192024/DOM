@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Robot Analyzing Data From a Webpage Containing a Table of Sensor Readings
+    </title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Sensor ID</th>
+          <th>Timestamp</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>S1</td>
+          <td>2024-10-26T10:00:00Z</td>
+          <td>25.5</td>
+        </tr>
+        <tr>
+          <td>S2</td>
+          <td>2024-10-26T10:05:00Z</td>
+          <td>18.7</td>
+        </tr>
+        <tr>
+          <td>S3</td>
+          <td>2024-10-26T10:10:00Z</td>
+          <td>32.1</td>
+        </tr>
+        <script>
+          const sensorData = {};
+
+          const rows = document.querySelectorAll("tbody tr");
+          rows.forEach((row) => {
+            const sensorId = row.cells[0].textContent;
+            const timestamp = new Date(row.cells[1].textContent); // Convert timestamp string to Date object
+            const value = parseFloat(row.cells[2].textContent);
+            if (!sensorData[sensorId]) {
+              sensorData[sensorId] = [];
+            }
+            sensorData[sensorId].push({ timestamp, value });
+          });
+
+          console.log("Sensor Data:", sensorData);
+          // Output:
+          // {
+          // S1: [{ timestamp: 2024-10-26T10:00:00.00Z, value: 25.5}],
+          // S2: [{ timestamp: 2024-10-26T10:05:00.000Z, value: 18.7}],
+          // S3 [{ timestamp: 2024-10-26T10:10:00.000Z, value: 32.1}]
+          // }
+        </script>
+      </tbody>
+    </table>
+  </body>
+</html>

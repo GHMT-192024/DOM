@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Extracting Data From Nested Element</title>
+  </head>
+  <body>
+    <div id="container">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+    </div>
+    <script>
+      const container = document.getElementById("container");
+      const listItems = container.querySelectorAll("ul li"); // Find all list items within the container
+
+      listItems.forEach((listItem) => {
+        console.log(listItem.textContent);
+      });
+      // Output:
+      // Item 1
+      // Item 2
+    </script>
+  </body>
+</html>
