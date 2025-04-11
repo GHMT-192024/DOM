@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Menu</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>
+        <h2>Appetizers</h2>
+        <ul id="appetizersList"></ul>
+        <li>Salad</li>
+        <li>Soup</li>
+        <li>Fries</li>
+        <li>
+          <h3>Main Courses</h3>
+          <ul id="mainCoursesList">
+            <li>Pasta</li>
+            <li>Steak</li>
+            <li>Pizza</li>
+          </ul>  
+        </li>
+      </li>
+    </ul>
+    <script>
+    function updateMenu() {
+      const menu = document.getElementById("menu");
+      const appetizersHeading = 
+    menu.querySelector("#appetizersList").previousElementSibling; // Find the appetizers heading
+     appetizersHeading.textContent = "Starters"; // Update the heading text
+     
+     const appetizersList = document.getElementById("appetizersList");
+     const soupItem = appetizersList.childNodes[1]; // Access the "Soup" list item appetizersList.removeChild(soupItem); // Remove the "Soup" list item
+     const newItem = document.createElement("li"); // Create a new list item
+     newItem.textContent = "Breadsticks";
+     appetizersList.insertBefore(newItem, appetizersList.firstChild); // Insert at the beginning
+    }
+    
+    updateMenu();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Robot Task List</title>
+  </head>
+  <body>
+    <ul id="taskList">
+      <li>Task 1: Move to location A</li>
+      <li>Task 2: Pick up item B</li>
+    </ul>
+    <script>
+      console.log("JavaScript code is running.");
+      function addTaskToList(taskDescription) {
+        console.log("addTaskToList called with:", taskDescription);
+        const taskList = document.getElementById("taskList");
+        if (!taskList) {
+          console.log("Error: taskList element not found!");
+          return;
+        }
+        const newTaskItem = document.createElement("li");
+        newTaskItem.textContent = taskDescription;
+        taskList.appendChild(newTaskItem);
+        console.log("Task added:", taskDescription);
+      }
+
+      addTaskToList("Task 3: Deliver item C to location D");
+      addTaskToList("Task 4: Return to base");
+      console.log("JavaScript code finished.");
+    </script>
+  </body>
+</html>

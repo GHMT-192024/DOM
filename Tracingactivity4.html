@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Robot Task List</title>
+    <style>
+      #taskList {
+        list-style-type: none;
+        padding: 0;
+      }
+      #taskList li {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Robot Tasks</h1>
+    <ul id="taskList">
+      <li>Scan area <button class="removeButton">Remove</button></li>
+      <li>Collect sample <button class="removeButton">Remove</button></li>
+    </ul>
+    <input type="text" id="newTask" placeholder="New task" />
+    <button id="addTaskButton">Add Task</button>
+
+    <script>
+      const addTaskButton = document.getElementById("addTaskButton");
+      const taskList = document.getElementById("taskList");
+      const newTaskTextInput = document.getElementById("newTask");
+
+      addTaskButton.addEventListener("click", () => {
+        const newTaskText = newTaskTextInput.value.trim();
+        if (newTaskText === "") return;
+
+        const li = document.createElement("li");
+        li.innerHTML = `${newTaskText} <button
+    class="removeButton">Remove</button>`;
+        taskList.appendChild(li);
+
+        newTaskTextInput.value = ""; // Clear input field
+
+        // Attach event listener to the new remove button
+        li.querySelector(".removeButton").addEventListener("click", (event) => {
+          event.target.parentElement.remove();
+          console.log("Task removed:", newTaskText); // Simulate sending a command to the robot to remove the task
+        });
+      });
+
+      // Attach event listeners to existing remove buttons
+      document.querySelectorAll(".removeButton").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const taskText = event.target.parentElement.textContent
+            .trim()
+            .replace("Remove", "");
+          event.target.parentElement.remove();
+          console.log("Task removed:", taskText); // Simulate sending a command to the robot to remove the task
+        });
+      });
+    </script>
+  </body>
+</html>

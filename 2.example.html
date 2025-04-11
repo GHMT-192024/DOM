@@ -1,0 +1,25 @@
+<! -- Problem Statement: Create a simple web page with a button that, when
+clicked, changes the text of a heading element from "Hello, World!" to "Hello,
+JavaScript Learners!" -- >
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Example 2</title>
+  </head>
+  <body>
+    <h1 id="greeting">Hello, World!</h1>
+    <button id="changeTextButton">Change Text</button>
+
+    <script>
+      document
+        .getElementById("changeTextButton")
+        .addEventListener("click", () => {
+          document.getElementById("greeting").innerText =
+            "Hello, JavaScript Learners!";
+        });
+    </script>
+  </body>
+</html>

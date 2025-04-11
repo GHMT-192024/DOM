@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List Manipulation</title>
+  </head>
+  <body>
+    <ul id="mainList">
+      <li>
+        <h2>Original Heading</h2>
+        <ul id="nestedList">
+          <li>Item A</li>
+          <li>Item B</li>
+          <li>Item C</li>
+        </ul>
+      </li>
+    </ul>
+    <script>
+      const mainList = document.getElementById("mainList");
+      const heading = mainList.querySelector("h2");
+      heading.textContent = "Updated Heading";
+
+      const nestedList = document.getElementById("nestedList");
+      const secondItem = nestedList.childNodes[3];
+      nestedList.removeChild(secondItem);
+
+      const newItem = document.createElement("li");
+      newItem.textContent = "New Item";
+      nestedList.insertBefore(newItem, nestedList.firstChild);
+    </script>
+  </body>
+</html>

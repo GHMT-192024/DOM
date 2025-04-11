@@ -1,0 +1,55 @@
+<! -- Problem Statement: Build a web page with a list of items, an input field, and a button. Implement JavaScript to allow users to add new items to the list and
+remove existing items by clicking a "Remove" button next to each item. -- >
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Example 3</title>
+    <style>
+      #itemList {
+        list-style-type: none;
+        padding: 0;
+      }
+      #itemList li {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="itemList">
+      <li>Item 1 <button class="removeButton">Remove</button></li>
+      <li>Item 2 <button class="removeButton">Remove</button></li>
+    </ul>
+    <input type="text" id="newItem" placeholder="New item" />
+    <button id="addItemButton">Add Item</button>
+
+    <script>
+      document.getElementById("addItemButton").addEventListener("click", () => {
+        const newItemText = document.getElementById("newItem").value;
+        if (newItemText.trim() === "") return;
+
+        const ul = document.getElementById("itemList");
+        const li = document.createElement("li");
+        li.innerHTML = `${newItemText} <button 
+class="removeButton">Remove</button>`;
+        ul.appendChild(li);
+
+        document.getElementById("newItem").value = ""; // Clear input field
+
+        // Attach event listener to the new remove button
+        li.querySelector(".removeButton").addEventListener("click", (event) => {
+          event.target.parentElement.remove();
+        });
+      });
+
+      // Attach event listeners to existing remove buttons
+      document.querySelectorAll(".removeButton").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.target.parentElement.remove();
+        });
+      });
+    </script>
+  </body>
+</html>

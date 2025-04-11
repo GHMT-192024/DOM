@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DOM Example</title>
+  </head>
+  <body>
+    <h1 id="heading">Hello, World!</h1>
+    <p>IT is our future.</p>
+    <button id="changeButton">Change Heading</button>
+
+    <script>
+      // JavaScript to interact with the DOM
+      document
+        .getElementById("changeButton")
+        .addEventListener("click", function () {
+          document.getElementById("heading").innerText =
+            "The button is clicked!";
+        });
+    </script>
+  </body>
+</html>

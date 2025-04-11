@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Robot Control Panel</title>
+  </head>
+  <body>
+    <h1 id="status">Robot Status: Idle</h1>
+    <button id="startButton">Start Task</button>
+    <button id="stopButton">Stop Task</button>
+
+    <script>
+      // JavaScript to interact with the DOM
+      const startButton = document.getElementById("startButton");
+      const stopButton = document.getElementById("stopButton");
+      const statusHeading = document.getElementById("status");
+
+      startButton.addEventListener("click", function () {
+        statusHeading.innerText = "Robot Status: Working...";
+        // Simulate starting a task, e.g., sending a command to the robot
+        console.log("Starting robot task...");
+      });
+
+      stopButton.addEventListener("click", function () {
+        statusHeading.innerText = "Robot Status: Idle";
+        // Simulate stopping a task, e.g., sending a stop command to the robot
+        console.log("Stopping robot task...");
+      });
+    </script>
+  </body>
+</html>
