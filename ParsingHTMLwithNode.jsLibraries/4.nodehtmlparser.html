@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div class="my-class">Hello World</div>
+    <script>
+      const htmlString = '<div class="my-class">Hello World</div>';
+      const parser = new DOMParser();
+      const htmlDoc = parser.parseFromString(htmlString, "text/html");
+      const divElement = htmlDoc.querySelector(".my-class");
+
+      console.log(divElement.textContent); // Output: Hello World
+    </script>
+  </body>
+</html>

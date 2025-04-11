@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="operational">Operational</option>
+        <option value="maintenance">Maintenance</option></select
+      ><br /><br />
+      <input type="submit" value="Submit" />
+      <script>
+        // Simulate getting robot data
+        const robotData = {
+          name: "Robot Alpha",
+          status: "operational",
+        };
+
+        // Fill out the form
+        document.getElementById("name").value = robotData.name;
+        document.getElementById("status").value = robotData.status;
+
+        // Simulate form submission
+        const form = document.getElementById("myForm");
+        form.addEventListener("submit", (event) => {
+          event.preventDefault(); // Prevent default form submission
+          console.log("Form submitted with data:", {
+            name: document.getElementById("name").value,
+            status: document.getElementById("status").value,
+          });
+          // Here you would typically send the data to a server
+        });
+
+        // Trigger form submission
+        form.submit();
+      </script>
+    </form>
+  </body>
+</html>

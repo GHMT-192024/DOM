@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Report</title>
+  </head>
+  <body>
+    <h1>Current Conditions</h1>
+    <p>Temperature: 25°C</p>
+    <p>Humidity: 60%</p>
+    <p>Wind: 10 km/h</p>
+
+    <script>
+      // Select elements and extract data
+      const temperature = $('p:contains("Temperature")').text().split(": ")[1];
+      const humidity = $('p:contains("Humidity")').text().split(": ")[1];
+      const wind = $('p:contains("Wind")').text().split(": ")[1];
+
+      console.log("Temperature:", temperature); // Output: 25°C
+      console.log("Humidity", humidity); // Output: 60%
+      console.log("Wind:", wind); // Output: 10 km/h
+    </script>
+  </body>
+</html>
